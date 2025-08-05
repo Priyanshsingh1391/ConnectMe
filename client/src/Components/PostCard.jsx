@@ -3,6 +3,7 @@ import React from 'react'
 import moment from 'moment'
 import { dummyUserData } from '../assets/assets';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const PostCard = ({post}) => {
     const [likes, setLikes] = useState(post.likes_count);
     const currentUser = dummyUserData
@@ -11,10 +12,12 @@ const PostCard = ({post}) => {
     const handleLike = async()=>{
 
     }
+
+    const navigate = useNavigate();
   return (
     <div className='bg-white rounded-xl shadow p-4 space-y-4w-full max-w-2xl'>
         {/*user info*/}
-      <div className='inline-flex items-center gap-3 cursor-pointer'>
+      <div onClick={()=> navigate('/profile/')} className='inline-flex items-center gap-3 cursor-pointer'>
         <img src={post.user.profile_picture} className='w-10 h-10
         rounded-full shadow'/>
         <div>
