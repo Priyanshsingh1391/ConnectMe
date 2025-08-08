@@ -6,6 +6,7 @@ import UserProfileInfo from '../Components/UserProfileInfo';
 import  PostCard  from '../Components/PostCard';
 
 import moment from 'moment';
+import ProfileModal from '../Components/ProfileModal';
 
 
 const Profile = () => {
@@ -85,7 +86,7 @@ useEffect(()=>{
       </div>
       </div>
         {/*Edit profile modal */}
-      {showEdit && <p>show profile edit</p>}
+      {showEdit && <ProfileModal setShowEdit={setShowEdit}/>}
       
     </div>
   ):(
