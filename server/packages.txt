@@ -1,0 +1,3 @@
+express cors dotenv mongoose multer
+
+to deal with clerk here we will use inngest
