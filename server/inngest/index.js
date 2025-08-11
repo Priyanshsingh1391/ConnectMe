@@ -9,13 +9,13 @@ export const inngest = new Inngest({ id: "pingup-app" });
 const syncUserCreation = inngest.createFunction(
     {id: 'sync-user-from-clerk'},
     {event: 'clerk/user.created'},
-    async (event)=>{
+    async ({event})=>{
         const {id,first_name, last_name, email_addresses, image_url} = event.data
         let username = email_addresses[0].email_address.split('@')[0]
 
         //check availabiliy of ussername
 
-        const user = await UserActivation.findOne({username})
+        const user = await User.findOne({username})
 
         if(user){
             username = username+ Math.floor(Math.random()*10000)
@@ -52,7 +52,7 @@ const syncUserUpdation = inngest.createFunction(
 //ingest function to delete user from database
 const syncUserDeletion = inngest.createFunction(
     {id: 'delete-user-from-clerk'},
-    {event: 'clerk/user.created'},
+    {event: 'clerk/user.deleted'},
     async ({event})=>{
         const {id} = event.data
        
