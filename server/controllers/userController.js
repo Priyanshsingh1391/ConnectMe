@@ -1,7 +1,7 @@
 // Get User Data using userId
 import Connection from "../models/Connection.js";
 
-import imagekit from "../configs/imagekit.js"
+import imagekit from "../configs/imageKits.js";
 import User from "../models/User.js"
 import fs from 'fs'
 export const getUserData = async (req , res)=>{
