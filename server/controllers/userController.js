@@ -1,4 +1,5 @@
 // Get User Data using userId
+import Connection from "../models/Connection.js";
 
 import imagekit from "../configs/imagekit.js"
 import User from "../models/User.js"
@@ -288,7 +289,7 @@ export const acceptConnectionrequest = async (req, res) => {
        await toUser.save()
 
        connection.status = 'accepted'
-       await connnection.save()
+       await connection.save()
 
        res.json({success:true, message:'connection accepted succesfully'})
 
