@@ -1,3 +1,9 @@
 express cors dotenv mongoose multer
 
 to deal with clerk here we will use inngest
+
+we are using imagekit to store image online
+
+using node mailer for sending an email when a user send a coonection request
+
+to get the smtp details we are using brevo website
