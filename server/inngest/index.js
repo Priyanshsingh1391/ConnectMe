@@ -4,6 +4,7 @@ import  Connection  from "../models/Connection.js";
 import sendEmail from "../configs/nodeMailer.js";
 import Story from "../models/Story.js"
 import Message from "../models/message.js";
+
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "pingup-app" });
 
@@ -150,7 +151,7 @@ const deleteStory = inngest.createFunction(
 
 const sendNotificationOfUnseenMessages = inngest.createFunction(
     {id: "send-unseen-messages-notification"},
-    {cron: "TZ-America/New_York 0 9 * * *"}, //Every Day 9 AM
+    {cron: "TZ=America/New_York 0 9 * * *"}, //Every Day 9 AM
 
     async({step}) => {
         const messages = await Message.find({seen:false}).populate('to_user_id');
