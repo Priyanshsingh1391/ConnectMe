@@ -1,12 +1,13 @@
 import express from 'express'
-import { getChatMessages, sseController } from '../controllers/messageController.js'
+import { getChatMessages, sendMessage, sseController } from '../controllers/messageController.js'
 import {protect} from '../middleware/auth.js'
 import {upload} from '../configs/multer.js'
 
 const messageRouter = express.Router()
 
+messageRouter.post('/send',protect,upload.single(`image`), sendMessage)
 messageRouter.get('/:userId', sseController)
-messageRouter.post('/send', upload.single(`image`),protect)
+
 
 messageRouter.post('/get', protect, getChatMessages)
 
